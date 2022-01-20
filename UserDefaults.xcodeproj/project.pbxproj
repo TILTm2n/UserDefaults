@@ -15,6 +15,7 @@
 		A3BD59B42799A2CF00CBF13A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3BD59B32799A2CF00CBF13A /* Assets.xcassets */; };
 		A3BD59B72799A2CF00CBF13A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3BD59B52799A2CF00CBF13A /* LaunchScreen.storyboard */; };
 		A3BD59BF2799B80C00CBF13A /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BD59BE2799B80C00CBF13A /* UserSettings.swift */; };
+		A3BD59C12799BFC400CBF13A /* UserSettingsStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3BD59C02799BFC400CBF13A /* UserSettingsStruct.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		A3BD59B62799A2CF00CBF13A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A3BD59B82799A2CF00CBF13A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A3BD59BE2799B80C00CBF13A /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
+		A3BD59C02799BFC400CBF13A /* UserSettingsStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsStruct.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				A3BD59B82799A2CF00CBF13A /* Info.plist */,
 				A3BD59B02799A2CE00CBF13A /* UserDefaults.xcdatamodeld */,
 				A3BD59BE2799B80C00CBF13A /* UserSettings.swift */,
+				A3BD59C02799BFC400CBF13A /* UserSettingsStruct.swift */,
 			);
 			path = UserDefaults;
 			sourceTree = "<group>";
@@ -144,6 +147,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3BD59C12799BFC400CBF13A /* UserSettingsStruct.swift in Sources */,
 				A3BD59B22799A2CE00CBF13A /* UserDefaults.xcdatamodeld in Sources */,
 				A3BD59AC2799A2CE00CBF13A /* ViewController.swift in Sources */,
 				A3BD59A82799A2CE00CBF13A /* AppDelegate.swift in Sources */,

@@ -21,6 +21,12 @@ class ViewController: UIViewController {
         
         userDefaults.set(settingsData, forKey: "userSetting")
         
+        //Struct
+        let encoder = JSONEncoder()
+        let settingsStruct = UserSettingsStruct(isAuoresizing: true)
+        let jsonData = try? encoder.encode(settingsStruct)
+        
+        userDefaults.set(jsonData, forKey: "userSettingStruct")
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -30,6 +36,13 @@ class ViewController: UIViewController {
            //теперь необходимо разархивировать
            let userSettings = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(userSettingsData) as? UserSettings{
             print("Setttings: \(userSettings)")
+        }
+        
+        if let userSettingsData = userDefaults.object(forKey: "userSettingStruct") as? Data{
+            let decoder = JSONDecoder()
+            
+            guard let model = try? decoder.decode(UserSettingsStruct.self, from: userSettingsData) else {return}
+            print("SetttingsStruct: \(model)")
         }
         
     }
