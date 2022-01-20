@@ -14,18 +14,22 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let settings = UserSettings(coder: NSCoder())
-        settings.isAuthorized = true
+        let settings = UserSettings(authoresize: true)
         
-        userDefaults.set(settings, forKey: "userSetting")
+        //lалее нужно заархивировать и получить Data
+        let settingsData = try? NSKeyedArchiver.archivedData(withRootObject: settings, requiringSecureCoding: false)
+        
+        userDefaults.set(settingsData, forKey: "userSetting")
         
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        if let userSettings = userDefaults.object(forKey: "userSetting") as? UserSettings {
-            print("\(userSettings)")
+        if let userSettingsData = userDefaults.object(forKey: "userSetting") as? Data,
+           //теперь необходимо разархивировать
+           let userSettings = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(userSettingsData) as? UserSettings{
+            print("Setttings: \(userSettings)")
         }
         
     }
