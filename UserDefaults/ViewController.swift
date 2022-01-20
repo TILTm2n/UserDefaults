@@ -14,36 +14,16 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let settings = UserSettings(authoresize: true)
+        let bool = true
         
-        //lалее нужно заархивировать и получить Data
-        let settingsData = try? NSKeyedArchiver.archivedData(withRootObject: settings, requiringSecureCoding: false)
-        
-        userDefaults.set(settingsData, forKey: "userSetting")
-        
-        //Struct
-        let encoder = JSONEncoder()
-        let settingsStruct = UserSettingsStruct(isAuoresizing: true)
-        let jsonData = try? encoder.encode(settingsStruct)
-        
-        userDefaults.set(jsonData, forKey: "userSettingStruct")
+        userDefaults.set(bool, forKey: "someBool")
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        if let userSettingsData = userDefaults.object(forKey: "userSetting") as? Data,
-           //теперь необходимо разархивировать
-           let userSettings = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(userSettingsData) as? UserSettings{
-            print("Setttings: \(userSettings)")
-        }
-        
-        if let userSettingsData = userDefaults.object(forKey: "userSettingStruct") as? Data{
-            let decoder = JSONDecoder()
-            
-            guard let model = try? decoder.decode(UserSettingsStruct.self, from: userSettingsData) else {return}
-            print("SetttingsStruct: \(model)")
-        }
+        let myBool = userDefaults.bool(forKey: "someBool")
+        print(myBool)
         
     }
 
