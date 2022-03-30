@@ -12,10 +12,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var field: UITextField!
     @IBOutlet weak var label: UILabel!
     
-    let userDefaults = UserDefaults()
-    
-    //UserDefaults предназначен для хранения пользовательских настроек
-    //var userDefaults = UserDefaults.standard
+    let userDefaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,20 +24,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
         
         label.text = value
-        
-//        let bool = true
-//        userDefaults.set(bool, forKey: "someBool")
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-//        let myBool = userDefaults.bool(forKey: "someBool")
-//        print(myBool)
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
         userDefaults.setValue(field.text, forKey: "name")
         field.resignFirstResponder()
         return true
