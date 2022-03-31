@@ -12,6 +12,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var field: UITextField!
     @IBOutlet weak var label: UILabel!
     
+    //Синглтон класса UserDefaults
     let userDefaults = UserDefaults.standard
     
     override func viewDidLoad() {
@@ -19,7 +20,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         field.delegate = self
         
-        guard let value = userDefaults.value(forKey: "name") as? String else {
+        guard let value = userDefaults.object(forKey: "name") as? String else {
             return
         }
         
@@ -32,7 +33,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        userDefaults.setValue(field.text, forKey: "name")
+        userDefaults.set(field.text, forKey: "name")
         field.resignFirstResponder()
         return true
     }
